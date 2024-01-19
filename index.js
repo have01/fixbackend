@@ -1,7 +1,6 @@
 const http = require('http');
 const url = require('url');
 const PORT = 3000;
-const cors = require('cors');
 
 const doctors = [
     {
@@ -257,11 +256,17 @@ const doctors = [
 ]
 
 const server = http.createServer((req, res) => {
+    // Set CORS headers to allow all origins (you may want to restrict this in production)
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
     const reqUrl = url.parse(req.url, true);
+
     if (reqUrl.pathname === '/') {
         res.end('hello world');
-
     }
+
     if (reqUrl.pathname === '/api/doctors' && reqUrl.query.city) {
         const city = reqUrl.query.city.toLowerCase();
         const filteredDoctors = doctors.filter(doctor => doctor.city.toLowerCase() === city);
@@ -275,7 +280,7 @@ const server = http.createServer((req, res) => {
         res.end('Not Found');
     }
 });
-server.use(cors());
+
 server.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}/`);
 });
