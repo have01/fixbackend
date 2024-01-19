@@ -265,6 +265,7 @@ const server = http.createServer((req, res) => {
 
     if (reqUrl.pathname === '/') {
         res.end('hello world');
+        return;
     }
 
     if (reqUrl.pathname === '/api/doctors' && reqUrl.query.city) {
