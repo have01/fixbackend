@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 
+app.use(express.json());
 
 // Sample data (replace with your actual data source)
 const doctors = [
