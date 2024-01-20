@@ -2,119 +2,120 @@ const http = require('http');
 const url = require('url');
 const PORT = 3000;
 
+
 const doctors = [
     {
-        "name": "Dr. B",
+        "name": "Dr. Hema Kapoor",
         "specialty": "Neuro",
-        "city": "banglore"
+        "city": "bangalore"
     },
     {
-        "name": "Dr. C",
+        "name": "Dr. Archana",
         "specialty": "MPTh (Musculoskeletal)",
         "city": "pune"
     },
     {
-        "name": "Dr. D",
+        "name": "Dr. V.K Mehta",
         "specialty": "MPTh (Musculoskeletal)",
         "city": "pune"
     },
     {
-        "name": "Dr. E",
+        "name": "Dr. Vikash Gupta",
         "specialty": "Neuro",
         "city": "hyderabad"
     },
     {
-        "name": "Dr. F",
+        "name": "Dr. Sanjay kapoor",
         "specialty": "MPTh (Musculoskeletal)",
         "city": "pune"
     },
     {
-        "name": "Dr. G",
+        "name": "Dr. Harsh Kumar",
         "specialty": "Neuro",
-        "city": "banglore"
+        "city": "bangalore"
     },
     {
-        "name": "Dr. H",
+        "name": "Dr. Karan Bhandari",
         "specialty": "Neuro",
-        "city": "banglore"
+        "city": "bangalore"
     },
     {
-        "name": "Dr. I",
+        "name": "Dr. Rahul Kumar",
         "specialty": "Neuro",
         "city": "hyderabad"
     },
     {
-        "name": "Dr. J",
+        "name": "Dr. Vaibhav Mishra",
         "specialty": "MPTh (Musculoskeletal)",
-        "city": "banglore"
+        "city": "bangalore"
     },
     {
-        "name": "Dr. K",
+        "name": "Dr. Ashutosh Singh",
         "specialty": "MPTh (Musculoskeletal)",
         "city": "hyderabad"
     },
     {
-        "name": "Dr. L",
+        "name": "Dr. Shubham Singh",
         "specialty": "Neuro",
         "city": "mumbai"
     },
     {
-        "name": "Dr. M",
+        "name": "Dr. Dheerendra",
         "specialty": "MPTh (Neuro Sciences)",
         "city": "mumbai"
     },
     {
-        "name": "Dr. N",
+        "name": "Dr. Kaushik",
         "specialty": "Neuro",
-        "city": "banglore"
+        "city": "bangalore"
     },
     {
-        "name": "Dr. O",
+        "name": "Dr. Sanjay Sinha",
         "specialty": "MPTh (Musculoskeletal)",
         "city": "hyderabad"
     },
     {
-        "name": "Dr. P",
+        "name": "Dr. Arvind kumar",
         "specialty": "Neuro",
         "city": "hyderabad"
     },
     {
-        "name": "Dr. Q",
+        "name": "Dr. Ashif",
         "specialty": "MPTh (Neuro Sciences)",
         "city": "pune"
     },
     {
-        "name": "Dr. R",
+        "name": "Dr. Dinkar",
         "specialty": "MPTh (Neuro Sciences)",
         "city": "hyderabad"
     },
     {
-        "name": "Dr. S",
+        "name": "Dr. Chirag",
         "specialty": "Neuro",
         "city": "pune"
     },
     {
-        "name": "Dr. T",
+        "name": "Dr. Neelam",
         "specialty": "Neuro",
-        "city": "banglore"
+        "city": "bangalore"
     },
     {
-        "name": "Dr. U",
+        "name": "Dr. Brijesh",
         "specialty": "MPTh (Musculoskeletal)",
         "city": "mumbai"
     },
     {
-        "name": "Dr. V",
+        "name": "Dr. Bhav",
         "specialty": "MPTh (Neuro Sciences)",
         "city": "hyderabad"
     },
     {
-        "name": "Dr. W",
+        "name": "Dr. Ayush",
         "specialty": "Neuro",
         "city": "pune"
     },
     {
-        "name": "Dr. X",
+        "name": "Dr. Bharat",
         "specialty": "Neuro",
         "city": "pune"
     },
@@ -124,134 +125,134 @@ const doctors = [
         "city": "pune"
     },
     {
-        "name": "Dr. Z",
+        "name": "Dr. Aviral",
         "specialty": "Neuro",
         "city": "hyderabad"
     },
     {
-        "name": "Dr. [",
+        "name": "Dr. Shivangi",
         "specialty": "MPTh (Neuro Sciences)",
-        "city": "banglore"
+        "city": "bangalore"
     },
     {
-        "name": "Dr. \\",
+        "name": "Dr. Asmeen",
         "specialty": "Neuro",
         "city": "mumbai"
     },
     {
-        "name": "Dr. ]",
+        "name": "Dr. Ashish",
         "specialty": "Neuro",
         "city": "mumbai"
     },
     {
-        "name": "Dr. ^",
+        "name": "Dr. Arpit",
         "specialty": "Neuro",
         "city": "pune"
     },
     {
-        "name": "Dr. _",
+        "name": "Dr. Anmol",
         "specialty": "MPTh (Neuro Sciences)",
         "city": "hyderabad"
     },
     {
-        "name": "Dr. `",
+        "name": "Dr. Ankita",
         "specialty": "MPTh (Neuro Sciences)",
-        "city": "banglore"
+        "city": "bangalore"
     },
     {
-        "name": "Dr. a",
+        "name": "Dr. Anjali",
         "specialty": "MPTh (Musculoskeletal)",
         "city": "hyderabad"
     },
     {
-        "name": "Dr. b",
+        "name": "Dr. AMrisha",
         "specialty": "Neuro",
         "city": "hyderabad"
     },
     {
-        "name": "Dr. c",
+        "name": "Dr. Amit",
         "specialty": "MPTh (Musculoskeletal)",
         "city": "mumbai"
     },
     {
-        "name": "Dr. d",
+        "name": "Dr. Alka",
         "specialty": "MPTh (Musculoskeletal)",
-        "city": "banglore"
+        "city": "bangalore"
     },
     {
-        "name": "Dr. e",
+        "name": "Dr. Aman",
         "specialty": "MPTh (Musculoskeletal)",
-        "city": "banglore"
+        "city": "bangalore"
     },
     {
-        "name": "Dr. f",
+        "name": "Dr. Akif",
         "specialty": "MPTh (Musculoskeletal)",
         "city": "hyderabad"
     },
     {
-        "name": "Dr. g",
+        "name": "Dr. Afreen",
         "specialty": "Neuro",
         "city": "pune"
     },
     {
-        "name": "Dr. h",
+        "name": "Dr. Ahmad",
         "specialty": "MPTh (Neuro Sciences)",
         "city": "pune"
     },
     {
-        "name": "Dr. i",
+        "name": "Dr. Aditya",
         "specialty": "Neuro",
         "city": "mumbai"
     },
     {
-        "name": "Dr. j",
+        "name": "Dr. Adarsh",
         "specialty": "MPTh (Neuro Sciences)",
         "city": "hyderabad"
     },
     {
-        "name": "Dr. k",
+        "name": "Dr. Abhishek",
         "specialty": "MPTh (Neuro Sciences)",
         "city": "pune"
     },
     {
-        "name": "Dr. l",
+        "name": "Dr. Abhinav",
         "specialty": "MPTh (Neuro Sciences)",
         "city": "pune"
     },
     {
-        "name": "Dr. m",
-        "specialty": "MPTh (Neuro Sciences)",
-        "city": "mumbai"
-    },
-    {
-        "name": "Dr. n",
-        "specialty": "MPTh (Musculoskeletal)",
-        "city": "banglore"
-    },
-    {
-        "name": "Dr. o",
+        "name": "Dr. Aakriti",
         "specialty": "MPTh (Neuro Sciences)",
         "city": "mumbai"
     },
     {
-        "name": "Dr. p",
+        "name": "Dr. Priya",
+        "specialty": "MPTh (Musculoskeletal)",
+        "city": "bangalore"
+    },
+    {
+        "name": "Dr. Nishtha",
+        "specialty": "MPTh (Neuro Sciences)",
+        "city": "mumbai"
+    },
+    {
+        "name": "Dr. Aarti",
         "specialty": "MPTh (Musculoskeletal)",
         "city": "pune"
     },
     {
-        "name": "Dr. q",
+        "name": "Dr. Akash",
         "specialty": "Neuro",
         "city": "pune"
     },
     {
-        "name": "Dr. r",
+        "name": "Dr. randip",
         "specialty": "Neuro",
-        "city": "banglore"
+        "city": "bangalore"
     },
     {
-        "name": "Dr. s",
+        "name": "Dr. sivir",
         "specialty": "Neuro",
-        "city": "banglore"
+        "city": "bangalore"
     }
 ]
 
