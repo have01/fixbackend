@@ -187,7 +187,7 @@ const doctors = [
         "name": "Dr. Col.V Hariharan",
         "specialty": "MPTh (Neuro Sciences)",
         "city": "bangalore",
-        "iamge": "https://cdn.askapollo.com/live/images/doctors/cardiology/dr-col-v-hariharan-cardiology-in-delhi.png"
+        "image": "https://cdn.askapollo.com/live/images/doctors/cardiology/dr-col-v-hariharan-cardiology-in-delhi.png"
     },
 
 ]
